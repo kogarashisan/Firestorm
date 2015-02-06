@@ -1,6 +1,6 @@
 {
   "name": "firestorm-library",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Low-level DOM access and utility library",
   "author": "Alex Galashov",
   "main": "lib/firestorm.js",
@@ -9,7 +9,7 @@
     "url": "https://github.com/kogarashisan/Firestorm"
   },
   "bugs": {
-    "url": "https://github.com/kogarashisan/LiquidLava/issues"
+    "url": "https://github.com/kogarashisan/Firestorm/issues"
   },
   "keywords": [
     "DOM"
