@@ -1,0 +1,18 @@
+{
+	"firestorm":[
+		"Firestorm.js",
+		"schema.js",
+		"known_exceptions.js",
+		"Environment.js",
+		"Element.js",
+		"ElementProperties.js",
+		"ElementDimensions.js",
+		"ElementStyles.js",
+		"DOM.js",
+		"Array.js",
+		"String.js",
+		"Object.js",
+		"Date.js",
+		"init.js"
+	]
+}

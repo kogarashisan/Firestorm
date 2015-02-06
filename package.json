@@ -1,0 +1,22 @@
+{
+  "name": "firestorm",
+  "version": "0.1.0",
+  "description": "Low-level DOM access and utility library",
+  "author": "Alex Galashov",
+  "main": "lib/firestorm.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kogarashisan/Firestorm"
+  },
+  "bugs": {
+    "url": "https://github.com/kogarashisan/LiquidLava/issues"
+  },
+  "keywords": [
+    "DOM"
+  ],
+  "devDependencies": {
+    "grunt": ">= 0.4.4",
+    "grunt-cli": ">= 0.1.13"
+  },
+  "license": "MIT"
+}

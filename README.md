@@ -1,2 +1,3 @@
-# Firestorm
-Low-level DOM access library
+#Firestorm library
+
+http://www.lava-framework.com/
