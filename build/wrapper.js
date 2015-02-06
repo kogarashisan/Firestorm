@@ -1,4 +1,4 @@
-(function (_root) {
+(function (_global) {
 
 /*<%firestorm_content%>*/
 
@@ -10,16 +10,16 @@ if (typeof module != 'undefined' && module.exports) {
 
 	var _previous_instance;
 
-	if (_root != null) {
-		_previous_instance = _root.Firestorm;
+	if (_global != null) {
+		_previous_instance = _global.Firestorm;
 	}
 
 	Firestorm.noConflict = function () {
-		_root.Firestorm = _previous_instance;
+		_global.Firestorm = _previous_instance;
 		return Firestorm;
 	};
 
-	_root.Firestorm = Firestorm;
+	_global.Firestorm = Firestorm;
 
 }
 

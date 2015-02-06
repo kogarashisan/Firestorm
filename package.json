@@ -1,6 +1,6 @@
 {
-  "name": "firestorm-library",
-  "version": "0.1.2",
+  "name": "firestorm",
+  "version": "0.1.3",
   "description": "Low-level DOM access and utility library",
   "author": "Alex Galashov",
   "main": "lib/firestorm.js",
