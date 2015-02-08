@@ -8,17 +8,6 @@ if (typeof module != 'undefined' && module.exports) {
 
 } else {
 
-	var _previous_instance;
-
-	if (_global != null) {
-		_previous_instance = _global.Firestorm;
-	}
-
-	Firestorm.noConflict = function () {
-		_global.Firestorm = _previous_instance;
-		return Firestorm;
-	};
-
 	_global.Firestorm = Firestorm;
 
 }

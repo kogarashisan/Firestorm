@@ -191,8 +191,6 @@ var Firestorm = {
 
 	},
 
-	noConflict: null,
-
 	/**
 	 * Throw an exception
 	 * @param [message] Exception message
