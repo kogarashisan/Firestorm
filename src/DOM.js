@@ -19,11 +19,11 @@ Firestorm.DOM = {
 	},
 
 	/**
-	 * Workaround for browser bugs in IE. Copied from {@link Firestorm.Environment#STRIPS_INNER_HTML_SCRIPT_AND_STYLE_TAGS}
+	 * Workaround for browser bugs in IE. Equals to value of `STRIPS_INNER_HTML_SCRIPT_AND_STYLE_TAGS` capability
 	 */
 	_needs_shy: false,
 	/**
-	 * Workaround for browser bugs in IE. Copied from {@link Firestorm.Environment#MOVES_WHITESPACE_BEFORE_SCRIPT}
+	 * Workaround for browser bugs in IE. Equals to value of `MOVES_WHITESPACE_BEFORE_SCRIPT` capability
 	 */
 	_moves_whitespace: false,
 
@@ -34,10 +34,10 @@ Firestorm.DOM = {
 
 		var e = Firestorm.Environment;
 
-		this._needs_shy = e.STRIPS_INNER_HTML_SCRIPT_AND_STYLE_TAGS;
-		this._moves_whitespace = e.MOVES_WHITESPACE_BEFORE_SCRIPT;
+		this._needs_shy = e.capabilities[Firestorm.CAPABILITY_NAMES.STRIPS_INNER_HTML_SCRIPT_AND_STYLE_TAGS];
+		this._moves_whitespace = e.capabilities[Firestorm.CAPABILITY_NAMES.MOVES_WHITESPACE_BEFORE_SCRIPT];
 
-		if (Firestorm.schema.dom.PREFER_RANGE_API && e.SUPPORTS_RANGE) {
+		if (Firestorm.schema.dom.PREFER_RANGE_API && e.capabilities[Firestorm.CAPABILITY_NAMES.SUPPORTS_RANGE]) {
 
 			this.insertHTMLBefore = this.insertHTMLBefore_Range;
 			this.insertHTMLAfter = this.insertHTMLAfter_Range;

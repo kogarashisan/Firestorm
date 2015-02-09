@@ -3,6 +3,7 @@
 		"Firestorm.js",
 		"schema.js",
 		"known_exceptions.js",
+		"CAPABILITY_NAMES.js",
 		"Environment.js",
 		"Element.js",
 		"ElementProperties.js",

@@ -193,6 +193,24 @@ Firestorm.String = {
 
 		return result + string;
 
+	},
+
+	/**
+	 * Split a string into array with class names
+	 * @param {string} classes_string
+	 * @returns {Array.<string>}
+	 */
+	toClassList: function(classes_string){
+
+		var class_names = classes_string.trim().split(/\s+/),
+			uniques = {};
+
+		return class_names.filter(function(class_name){
+			if (!uniques[class_name]) {
+				return uniques[class_name] = class_name;
+			}
+		});
+
 	}
 
 };

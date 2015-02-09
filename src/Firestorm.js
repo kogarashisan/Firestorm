@@ -27,6 +27,12 @@ var Firestorm = {
 	Date: null,
 
 	/**
+	 * Browser capability names for {@link Firestorm.Environment#capabilities}
+	 * @enum {number}
+	 */
+	CAPABILITY_NAMES: null,
+
+	/**
 	 * The map of numbered exception messages. May be excluded from production build
 	 * @type {Object.<number, string>}
 	 */
@@ -74,6 +80,7 @@ var Firestorm = {
 
 			this.Environment && this.Environment.init();
 			this.DOM && this.DOM.init();
+			this.Element && this.Element.init();
 
 		}
 
@@ -113,7 +120,7 @@ var Firestorm = {
 	 */
 	getElementById: function(id) {
 
-		return document.id(id);
+		return document.getElementById(id);
 
 	},
 

@@ -2,42 +2,55 @@
  * Checks for browser bugs and capabilities, provides common interfaces for browser-specific extensions
  */
 Firestorm.Environment = {
-
 	/**
 	 * opera|ie|firefox|chrome|safari|unknown
+	 * @readonly
 	 * @type {string}
 	 */
 	browser_name: null,
 	/**
 	 * Browser version number
+	 * @readonly
 	 * @type {string}
 	 */
 	browser_version: null,
 	/**
 	 * ios|windows|other|?
+	 * @readonly
 	 * @type {number}
 	 */
 	platform: null,
 
-	//SUPPORTS_FUNCTION_SERIALIZATION: false,
 	/**
-	 * Supports HTML Range API
+	 * Environment capabilities. Names of each index are stored in {@link Firestorm#CAPABILITY_NAMES}
+	 * @type {Array.<boolean>}
 	 */
-	SUPPORTS_RANGE: false,
+	capabilities: [],
+
 	/**
-	 * Internet Explorer < 9 strips SCRIPT and STYLE tags from beginning of innerHTML
+	 * Test for each capability from {@link Firestorm#CAPABILITY_NAMES}, used by {@link Firestorm.Environment}.
+	 * You do not need to call these methods directly
+	 * @type {Array.<function>}
 	 */
-	STRIPS_INNER_HTML_SCRIPT_AND_STYLE_TAGS: false,
-	/**
-	 * IE 8 (and likely earlier) likes to move whitespace preceding a script tag to appear after it.
-	 * This means that we can accidentally remove whitespace when updating a morph
-	 */
-	MOVES_WHITESPACE_BEFORE_SCRIPT: false,
-	/**
-	 * IE8 and IE9 have bugs in "input" event, see
-	 * http://benalpert.com/2013/06/18/a-near-perfect-oninput-shim-for-ie-8-and-9.html
-	 */
-	NEEDS_INPUT_EVENT_SHIM: false,
+	tests: [
+		function(document) {
+			// last check is for IE9 which only partially supports ranges
+			return ('createRange' in document) && (typeof Range !== 'undefined') && Range.prototype.createContextualFragment;
+		},
+		function(document, div) {
+			div.innerHTML = "<div></div>";
+			div.firstChild.innerHTML = "<script></script>";
+			return div.firstChild.innerHTML === '';
+		},
+		function(document, div) {
+			div.innerHTML = "Test: <script type='text/x-placeholder'></script>Value";
+			return div.childNodes[0].nodeValue === 'Test:' && div.childNodes[2].nodeValue === ' Value';
+		},
+		function(document) {
+			return ("documentMode" in document) && document.documentMode < 10;
+		}
+	],
+
 	/**
 	 * Calls requestAnimationFrame, if browser supports it. Actual method name may have a vendor prefix in different browsers.
 	 * If browser does not support requestAnimationFrame - this method will be <kw>null</kw>
@@ -51,26 +64,15 @@ Firestorm.Environment = {
 	init: function() {
 
 		var document = window.document,
-			test_node,
-			requestAnimationFrame;
+			div = document.createElement('div'),
+			requestAnimationFrame,
+			tests = this.tests,
+			i = 0,
+			count = tests.length;
 
 		this.browser_name = Browser.name;
 		this.browser_version = Browser.version;
 		this.platform = Browser.platform;
-
-		// all, even old browsers, must be able to convert a function back to sources
-		//this.SUPPORTS_FUNCTION_SERIALIZATION = /xyz/.test(function(){xyz;});
-
-		// last check is for IE9 which only partially supports ranges
-		this.SUPPORTS_RANGE = ('createRange' in document) && (typeof Range !== 'undefined') && Range.prototype.createContextualFragment;
-
-		test_node = document.createElement('div');
-		test_node.innerHTML = "<div></div>";
-		test_node.firstChild.innerHTML = "<script></script>";
-		this.STRIPS_INNER_HTML_SCRIPT_AND_STYLE_TAGS = test_node.firstChild.innerHTML === '';
-
-		test_node.innerHTML = "Test: <script type='text/x-placeholder'></script>Value";
-		this.MOVES_WHITESPACE_BEFORE_SCRIPT = test_node.childNodes[0].nodeValue === 'Test:' && test_node.childNodes[2].nodeValue === ' Value';
 
 		requestAnimationFrame =
 			window.requestAnimationFrame
@@ -80,7 +82,11 @@ Firestorm.Environment = {
 
 		this.requestAnimationFrame = requestAnimationFrame ? function(fn) { requestAnimationFrame.call(window, fn); } : null;
 
-		this.NEEDS_INPUT_EVENT_SHIM = ("documentMode" in document) && document.documentMode < 10;
+		for (; i < count; i++) {
+
+			this.capabilities[i] = tests[i](document, div);
+
+		}
 
 	}
 
