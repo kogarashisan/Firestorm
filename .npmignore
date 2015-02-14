@@ -1,7 +1,7 @@
-node\_modules
-\.idea
-\.ssh
+/node_modules
+/.idea
+/.ssh
 
-src
-build
-Gruntfile\.js
+/src
+/build
+/Gruntfile.js

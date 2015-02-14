@@ -63,7 +63,7 @@ Firestorm.String = {
 	 */
 	HTML_ESCAPE_REGEX: /[<>\&]/g,
 	/**
-	 * Characters that nust be escaped in HTML attributes
+	 * Characters that must be escaped in HTML attributes
 	 */
 	ATTRIBUTE_ESCAPE_REGEX: /[&<>\"\'\`]/g,
 	/**
