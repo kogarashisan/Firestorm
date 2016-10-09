@@ -1,6 +1,14 @@
+/*!
+ * Firestorm library
+ * https://github.com/kogarashisan/Firestorm/
+ *
+ * Copyright Alex Galashov, MIT license
+ *
+ * Version: <%=version%>
+ */
 (function (_global) {
 
-/*<%firestorm_content%>*/
+/*=FIRESTORM_CONTENT*/
 
 if (typeof module != 'undefined' && module.exports) {
 

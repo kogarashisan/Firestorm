@@ -1,3 +1,4 @@
+
 /**
  * Checks for browser bugs and capabilities, provides common interfaces for browser-specific extensions
  */
@@ -68,7 +69,8 @@ Firestorm.Environment = {
 			requestAnimationFrame,
 			tests = this.tests,
 			i = 0,
-			count = tests.length;
+			count = tests.length,
+            Browser = this._getBrowserObject();
 
 		this.browser_name = Browser.name;
 		this.browser_version = Browser.version;
@@ -88,6 +90,50 @@ Firestorm.Environment = {
 
 		}
 
-	}
+	},
+
+    // sorry for this copy-paste from MooTools. I needed it urgently.
+    _getBrowserObject: function () {
+
+        var document = window.document;
+
+        var parse = function(ua, platform){
+            ua = ua.toLowerCase();
+            platform = (platform ? platform.toLowerCase() : '');
+
+            // chrome is included in the edge UA, so need to check for edge first,
+            // before checking if it's chrome.
+            var UA = ua.match(/(edge)[\s\/:]([\w\d\.]+)/);
+            if (!UA){
+                UA = ua.match(/(opera|ie|firefox|chrome|trident|crios|version)[\s\/:]([\w\d\.]+)?.*?(safari|(?:rv[\s\/:]|version[\s\/:])([\w\d\.]+)|$)/) || [null, 'unknown', 0];
+            }
+
+            if (UA[1] == 'trident'){
+                UA[1] = 'ie';
+                if (UA[4]) UA[2] = UA[4];
+            } else if (UA[1] == 'crios'){
+                UA[1] = 'chrome';
+            }
+
+            platform = ua.match(/ip(?:ad|od|hone)/) ? 'ios' : (ua.match(/(?:webos|android)/) || ua.match(/mac|win|linux/) || ['other'])[0];
+            if (platform == 'win') platform = 'windows';
+
+            return {
+                extend: Function.prototype.extend,
+                name: (UA[1] == 'version') ? UA[3] : UA[1],
+                version: parseFloat((UA[1] == 'opera' && UA[4]) ? UA[4] : UA[2]),
+                platform: platform
+            };
+        };
+
+        var Browser = parse(navigator.userAgent, navigator.platform);
+
+        if (Browser.name == 'ie' && document.documentMode){
+            Browser.version = document.documentMode;
+        }
+
+        return Browser;
+
+    }
 
 };

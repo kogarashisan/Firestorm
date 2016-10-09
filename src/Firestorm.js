@@ -16,6 +16,8 @@ var Firestorm = {
 	/** @ignore */
 	DOM: null,
 	/** @ignore */
+	Event: null,
+    /** @ignore */
 	Element: null,
 	/** @ignore */
 	String: null,
@@ -76,7 +78,7 @@ var Firestorm = {
 
 		if (typeof(window) != 'undefined') {
 
-			if (!('id' in window.document)) Firestorm.t("MooTools isn't loaded");
+			if (typeof jQuery == 'undefined') Firestorm.t("Firestorm requires jQuery to be loaded");
 
 			this.Environment && this.Environment.init();
 			this.DOM && this.DOM.init();
@@ -165,7 +167,7 @@ var Firestorm = {
 	 */
 	selectElements: function(selector) {
 
-		return Slick.search(window.document, selector, []);
+		return $.find(selector, window.document, []);
 
 	},
 
@@ -197,6 +199,12 @@ var Firestorm = {
 		}
 
 	},
+
+    onDocumentReady: function (handler) {
+
+        $(document).ready(handler);
+
+    },
 
 	/**
 	 * Throw an exception
