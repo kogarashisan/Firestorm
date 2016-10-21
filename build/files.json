@@ -2,7 +2,7 @@
 	"firestorm":[
 		"Firestorm.js",
 		"schema.js",
-		"known_exceptions.js",
+		"error_descriptions.js",
 		"CAPABILITY_NAMES.js",
 		"Environment.js",
 		"Event.js",

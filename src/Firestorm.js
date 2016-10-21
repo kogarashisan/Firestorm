@@ -38,7 +38,7 @@ var Firestorm = {
 	 * The map of numbered exception messages. May be excluded from production build
 	 * @type {Object.<number, string>}
 	 */
-	KNOWN_EXCEPTIONS: null,
+    ERROR_DESCRIPTIONS: null,
 
 	/**
 	 * Used by {@link Firestorm#getType}
@@ -212,8 +212,8 @@ var Firestorm = {
 	 */
 	t: function(message) {
 
-		if (typeof(message) == 'number' && this.KNOWN_EXCEPTIONS && (message in this.KNOWN_EXCEPTIONS)) {
-			throw new Error(this.KNOWN_EXCEPTIONS[message]);
+		if (typeof(message) == 'number' && this.ERROR_DESCRIPTIONS && (message in this.ERROR_DESCRIPTIONS)) {
+			throw new Error(this.ERROR_DESCRIPTIONS[message]);
 		}
 
 		throw new Error(message || 'Debug assertion failed');

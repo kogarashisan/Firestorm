@@ -1,5 +1,5 @@
 
 // you may remove this file from release build
-Firestorm.KNOWN_EXCEPTIONS = {
+Firestorm.ERROR_DESCRIPTIONS = {
 	'1': "Firestorm: framework requires initialization"
 };
