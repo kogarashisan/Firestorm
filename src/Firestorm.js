@@ -9,6 +9,8 @@ and MooTools (http://mootools.net/)
  */
 var Firestorm = {
 
+    $: null, // reference to jQuery
+
 	/** @ignore */
 	schema: null,
 	/** @ignore */
@@ -79,6 +81,8 @@ var Firestorm = {
 		if (typeof(window) != 'undefined') {
 
 			if (typeof jQuery == 'undefined') Firestorm.t("Firestorm requires jQuery to be loaded");
+
+            this.$ = jQuery;
 
 			this.Environment && this.Environment.init();
 			this.DOM && this.DOM.init();
@@ -167,7 +171,7 @@ var Firestorm = {
 	 */
 	selectElements: function(selector) {
 
-		return $.find(selector, window.document, []);
+		return this.$.find(selector, window.document, []);
 
 	},
 
@@ -202,7 +206,7 @@ var Firestorm = {
 
     onDocumentReady: function (handler) {
 
-        $(document).ready(handler);
+        this.$(document).ready(handler);
 
     },
 

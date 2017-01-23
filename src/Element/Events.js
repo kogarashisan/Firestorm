@@ -47,11 +47,13 @@ Firestorm.Element,
     addListener: function(element, event_name, callback) {
 
         var real_handler = function (event_object) {
-            callback(new Firestorm.Event(event_object.originalEvent, event_object));
+            if (event_object.originalEvent) {
+                callback(new Firestorm.Event(event_object.originalEvent, event_object));
+            }
         };
-        $(element).on(event_name, real_handler);
+        Firestorm.$(element).on(event_name, real_handler);
 
-        this._storeHandler($(element), 'FE_' + event_name, real_handler, callback);
+        this._storeHandler(Firestorm.$(element), 'FE_' + event_name, real_handler, callback);
 
     },
 
@@ -63,8 +65,8 @@ Firestorm.Element,
      */
     removeListener: function(element, event_name, callback) {
 
-        var real_handler = this._removeCallback($(element), 'FE_' + event_name, callback);
-        real_handler && $(element).off(event_name, real_handler);
+        var real_handler = this._removeCallback(Firestorm.$(element), 'FE_' + event_name, callback);
+        real_handler && Firestorm.$(element).off(event_name, real_handler);
 
     },
 
@@ -80,8 +82,8 @@ Firestorm.Element,
         var real_handler = function (event_object) {
             callback(new Firestorm.Event(event_object.originalEvent, event_object));
         };
-        $(element).on(event_name, selector, callback);
-        this._storeHandler($(element), 'FE_D_' + event_name + '|' + selector, real_handler, callback);
+        Firestorm.$(element).on(event_name, selector, callback);
+        this._storeHandler(Firestorm.$(element), 'FE_D_' + event_name + '|' + selector, real_handler, callback);
 
     },
 
@@ -94,8 +96,8 @@ Firestorm.Element,
      */
     removeDelegation: function(element, event_name, selector, callback) {
 
-        var real_handler = this._removeCallback($(element), 'FE_D_' + event_name + '|' + selector, callback);
-        real_handler && $(element).off(event_name, selector, real_handler);
+        var real_handler = this._removeCallback(Firestorm.$(element), 'FE_D_' + event_name + '|' + selector, callback);
+        real_handler && Firestorm.$(element).off(event_name, selector, real_handler);
 
     }
 

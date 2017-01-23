@@ -29,7 +29,7 @@ Firestorm.Element,
 	 */
 	setProperty: function(element, name, value) {
 
-        $(element).prop(name, value);
+        Firestorm.$(element).prop(name, value);
 
 	},
 
@@ -40,7 +40,7 @@ Firestorm.Element,
      */
     setHtml: function(element, value) {
 
-        $(element).html(value);
+        Firestorm.$(element).html(value);
 
     },
 
@@ -52,7 +52,7 @@ Firestorm.Element,
 	 */
 	getProperty: function(element, name) {
 
-		return $(element).prop(name);
+		return Firestorm.$(element).prop(name);
 
 	},
 
@@ -64,7 +64,7 @@ Firestorm.Element,
 	 */
 	hasAttribute: function(element, name) {
 
-		throw "Framework requires initialization";
+		Firestorm.t("Framework requires initialization");
 
 	},
 
@@ -101,7 +101,7 @@ Firestorm.Element,
 	 */
 	getAttribute: function(element, name) {
 
-		return $(element).attr(name);
+		return Firestorm.$(element).attr(name);
 
 	},
 
@@ -112,7 +112,7 @@ Firestorm.Element,
      */
     removeAttribute: function(element, name) {
 
-        $(element).removeAttr(name);
+        Firestorm.$(element).removeAttr(name);
 
     },
 

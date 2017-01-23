@@ -65,6 +65,23 @@ Firestorm.DOM = {
 
 	},
 
+    /**
+     * Clears all selected ranges on page.
+     */
+    clearSelections: function () {
+
+        if (window.getSelection) {
+            if (window.getSelection().empty) {
+                window.getSelection().empty(); // Chrome
+            } else if (window.getSelection().removeAllRanges) {
+                window.getSelection().removeAllRanges(); // FF
+            }
+        } else if (document.selection) {
+            document.selection.empty(); // IE
+        }
+
+    },
+
 	/**
 	 * Turn given HTML into DOM nodes and insert them before the given element
 	 * @param {HTMLElement} element

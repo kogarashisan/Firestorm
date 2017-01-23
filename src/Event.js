@@ -1,5 +1,6 @@
 
-//sorry for this copy-paste from MooTools. I needed it urgently. Will be reworked later.
+/* Thanks MooTools authors for this (rewritten) piece of code. */
+
 Firestorm.Event = function (event, jquery_event) {
 
     //if (!win) win = window;

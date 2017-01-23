@@ -20,7 +20,7 @@ Firestorm.Element = {
 	 */
 	destroy: function(element) {
 
-		$(element).remove();
+		Firestorm.$(element).remove();
 
 	},
 
@@ -154,7 +154,7 @@ Firestorm.Element = {
 	 */
 	selectElements: function(element, selector) {
 
-		return $.find(selector, element, []);
+		return Firestorm.$.find(selector, element, []);
 
 	}
 

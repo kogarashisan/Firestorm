@@ -211,6 +211,18 @@ Firestorm.String = {
 			}
 		});
 
-	}
+	},
+
+    startsWith: function(string, prefix) {
+
+        return string.substr(0, prefix.length) == prefix;
+
+    },
+
+    endsWith: function(string, suffix) {
+
+        return string.indexOf(suffix, string.length - suffix.length) !== -1;
+
+    }
 
 };

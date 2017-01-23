@@ -32,7 +32,7 @@ Firestorm.Element,
 	 */
 	setStyle: function(element, name, value) {
 
-		$(element).css(name, value);
+        Firestorm.$(element).css(name, value);
 
 	},
 
@@ -67,7 +67,7 @@ Firestorm.Element,
 	 */
 	getStyle: function(element, name) {
 
-		return $(element).css(name);
+		return Firestorm.$(element).css(name);
 
 	},
 
@@ -78,7 +78,7 @@ Firestorm.Element,
 	 */
 	setOpacity: function(element, value) {
 
-        $(element).css('opacity', value);
+        Firestorm.$(element).css('opacity', value);
 
 	},
 
@@ -89,7 +89,7 @@ Firestorm.Element,
 	 */
 	getOpacity: function(element) {
 
-		return $(element).css('opacity');
+		return Firestorm.$(element).css('opacity');
 
 	},
 
