@@ -106,6 +106,18 @@ Firestorm.Element,
 	},
 
     /**
+     * Sets attribute on element
+     * @param {HTMLElement} element
+     * @param {string} name Attribute name
+     * @param {string} value attribute value
+     */
+    setAttribute: function(element, name, value) {
+
+        return Firestorm.$(element).attr(name, value);
+
+    },
+
+    /**
      * Remove an attribute from the element
      * @param {HTMLElement} element
      * @param {string} name Attribute name

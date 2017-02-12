@@ -92,7 +92,10 @@ Firestorm.Environment = {
 
 	},
 
-    // sorry for this copy-paste from MooTools. I needed it urgently.
+    /**
+     * Taken from MooTools
+     * @returns {{extend, name, version, platform}}
+     */
     _getBrowserObject: function () {
 
         var document = window.document;
