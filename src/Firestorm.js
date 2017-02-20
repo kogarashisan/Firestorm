@@ -29,6 +29,8 @@ var Firestorm = {
 	Object: null,
 	/** @ignore */
 	Date: null,
+	/** @ignore */
+	Sorting: null,
 
 	/**
 	 * Browser capability names for {@link Firestorm.Environment#capabilities}
@@ -209,6 +211,11 @@ var Firestorm = {
         this.$(document).ready(handler);
 
     },
+	/**
+	 * Default comparison function
+	 * @returns {boolean}
+	 */
+	defaultLess: function(a, b) { return a < b; },
 
 	/**
 	 * Throw an exception

@@ -16,6 +16,7 @@
 		"String.js",
 		"Object.js",
 		"Date.js",
+		"Sorting.js",
 		"init.js"
 	]
 }
