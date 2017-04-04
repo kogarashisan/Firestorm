@@ -6,7 +6,7 @@ Firestorm.Element,
  */
 {
 
-    _initStyles: function () {
+    _initStyles: function() {
 
         if (!!document.createElement('div').classList) {
 

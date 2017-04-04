@@ -5,7 +5,7 @@ Firestorm.Element,
  */
 {
 
-    _storeHandler: function (wrapped_element, key, handler, callback) {
+    _storeHandler: function(wrapped_element, key, handler, callback) {
 
         var event_data = wrapped_element.data(key);
         if (!event_data) {
@@ -20,7 +20,7 @@ Firestorm.Element,
 
     },
 
-    _removeCallback: function (wrapped_element, key, callback) {
+    _removeCallback: function(wrapped_element, key, callback) {
 
         var event_data = wrapped_element.data(key),
             real_handler;
@@ -46,7 +46,7 @@ Firestorm.Element,
      */
     addListener: function(element, event_name, callback) {
 
-        var real_handler = function (event_object) {
+        var real_handler = function(event_object) {
             if (event_object.originalEvent) {
                 callback(new Firestorm.Event(event_object.originalEvent, event_object));
             }
@@ -79,7 +79,7 @@ Firestorm.Element,
      */
     addDelegation: function(element, event_name, selector, callback) {
 
-        var real_handler = function (event_object) {
+        var real_handler = function(event_object) {
             callback(new Firestorm.Event(event_object.originalEvent, event_object));
         };
         Firestorm.$(element).on(event_name, selector, callback);

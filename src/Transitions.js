@@ -7,11 +7,11 @@ Firestorm.Transitions = {
 		return x;
 	},
 
-	inSine: function (x) {
+	inSine: function(x) {
 		return 1 - Math.cos(x * Math.PI / 2);
 	},
 
-	outSine: function (x) {
+	outSine: function(x) {
 		return Math.sin(x * Math.PI / 2);
 	},
 
@@ -19,27 +19,27 @@ Firestorm.Transitions = {
 		return -(Math.cos(Math.PI * x) - 1) / 2;
 	},
 
-	inQuad: function (x) {
+	inQuad: function(x) {
 		return x * x;
 	},
 
-	outQuad: function (x) {
+	outQuad: function(x) {
 		return x * (2 - x);
 	},
 
-	inOutQuad: function (x) {
+	inOutQuad: function(x) {
 		return (x < .5) ? (2 * x * x) : (1 - 2 * (x -= 1) * x);
 	},
 
-	inCubic: function (x) {
+	inCubic: function(x) {
 		return x * x * x;
 	},
 
-	outCubic: function (x) {
+	outCubic: function(x) {
 		return (x -= 1) * x * x + 1;
 	},
 
-	inOutCubic: function (x) {
+	inOutCubic: function(x) {
 		return (x < .5) ? (4 * x * x * x) : (4 * (x -= 1) * x * x + 1);
 	}
 

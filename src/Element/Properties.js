@@ -6,7 +6,7 @@ Firestorm.Element,
  */
 {
 
-    _initProperties: function () {
+    _initProperties: function() {
 
         var root = document.documentElement;
         this.hasAttribute = (root && this._isNativeCode(root.hasAttribute))

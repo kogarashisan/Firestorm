@@ -113,7 +113,7 @@ Firestorm.String = {
 			map = this.quote_escape_map;
 
 		if (this.QUOTE_ESCAPE_REGEX.test(string)) {
-			result = '"' + string.replace(this.QUOTE_ESCAPE_REGEX, function (a) {
+			result = '"' + string.replace(this.QUOTE_ESCAPE_REGEX, function(a) {
 				var c = map[a];
 				return typeof c == 'string' ? c : '\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
 			}) + '"';

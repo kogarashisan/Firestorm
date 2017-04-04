@@ -2,7 +2,7 @@
 /**
  * Thanks MooTools authors for this (rewritten) piece of code.
  */
-Firestorm.Event = function (event, jquery_event) {
+Firestorm.Event = function(event, jquery_event) {
 
     //if (!win) win = window;
     //event = event || win.event;
@@ -79,7 +79,7 @@ Firestorm.extend(Firestorm.Event.prototype, {
 
     },
 
-    _normalizeKeyboard: function (event, type) {
+    _normalizeKeyboard: function(event, type) {
 
         var code = this.code = (event.which || event.keyCode);
         if (!this.shift || type != 'keypress') {
@@ -125,7 +125,7 @@ Firestorm.extend(Firestorm.Event.prototype, {
 
     },
 
-    _normalizeTouch: function (event, type) {
+    _normalizeTouch: function(event, type) {
 
         this.rotation = event.rotation;
         this.scale = event.scale;

@@ -68,7 +68,7 @@ Firestorm.DOM = {
     /**
      * Clears all selected ranges on page.
      */
-    clearSelections: function () {
+    clearSelections: function() {
 
         if (window.getSelection) {
             if (window.getSelection().empty) {

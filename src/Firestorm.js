@@ -210,7 +210,7 @@ var Firestorm = {
 
 	},
 
-    onDocumentReady: function (handler) {
+    onDocumentReady: function(handler) {
 
         this.$(document).ready(handler);
 
