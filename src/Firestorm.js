@@ -31,6 +31,10 @@ var Firestorm = {
 	Date: null,
 	/** @ignore */
 	Sorting: null,
+	/** @ignore */
+	transitions: null,
+	/** @ignore */
+	types: null,
 
 	/**
 	 * Browser capability names for {@link Firestorm.Environment#capabilities}
@@ -211,6 +215,7 @@ var Firestorm = {
         this.$(document).ready(handler);
 
     },
+
 	/**
 	 * Default comparison function
 	 * @returns {boolean}

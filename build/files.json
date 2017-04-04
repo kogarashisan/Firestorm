@@ -2,7 +2,7 @@
 	"firestorm":[
 		"Firestorm.js",
 		"schema.js",
-		"error_descriptions.js",
+		"ERROR_DESCRIPTIONS.js",
 		"CAPABILITY_NAMES.js",
 		"Environment.js",
 		"Event.js",
@@ -17,6 +17,8 @@
 		"Object.js",
 		"Date.js",
 		"Sorting.js",
+	    "Transitions.js",
+	    "Types.js",
 		"init.js"
 	]
 }

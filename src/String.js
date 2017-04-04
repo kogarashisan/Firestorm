@@ -76,43 +76,6 @@ Firestorm.String = {
 	UNESCAPE_REGEX: /(&amp;|&lt;|&gt;)/g,
 
 	/**
-	 * Turn "dashed-string" into "camelCased" string
-	 * @param {string} string
-	 * @returns {string}
-	 */
-	camelCase: function(string){
-
-		return string.replace(/-\D/g, function(match){
-			return match.charAt(1).toUpperCase();
-		});
-
-	},
-
-	/**
-	 * Turn "camelCased" string into "dashed-string"
-	 * @param {string} string
-	 * @returns {string}
-	 */
-	hyphenate: function(string){
-
-		return string.replace(/[A-Z]/g, function(match){
-			return ('-' + match.charAt(0).toLowerCase());
-		});
-
-	},
-
-	/**
-	 * Uppercase the first letter of all words
-	 * @param {string} string
-	 * @returns {string}
-	 */
-	capitalize: function(string){
-		return string.replace(/\b[a-z]/g, function(match){
-			return match.toUpperCase();
-		});
-	},
-
-	/**
 	 * Escape HTML entities found by `regex` argument
 	 * @param {string} string
 	 * @param {RegExp} regex A regular expression object, such as {@link Firestorm.String#HTML_ESCAPE_REGEX}
@@ -223,6 +186,60 @@ Firestorm.String = {
 
         return string.indexOf(suffix, string.length - suffix.length) !== -1;
 
-    }
+    },
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Filters
+
+	/**
+	 * Turn "dashed-string" into "camelCased" string
+	 * @param {string} string
+	 * @returns {string}
+	 */
+	camelCase: function(string){
+
+		return string.replace(/-\D/g, function(match){
+			return match.charAt(1).toUpperCase();
+		});
+
+	},
+
+	/**
+	 * Turn "camelCased" string into "dashed-string"
+	 * @param {string} string
+	 * @returns {string}
+	 */
+	hyphenate: function(string){
+
+		return string.replace(/[A-Z]/g, function(match){
+			return ('-' + match.charAt(0).toLowerCase());
+		});
+
+	},
+
+	/**
+	 * Uppercase the first letter of all words
+	 * @param {string} string
+	 * @returns {string}
+	 */
+	capitalize: function(string){
+		return string.replace(/\b[a-z]/g, function(match){
+			return match.toUpperCase();
+		});
+	},
+
+	/**
+	 * Upper-case first letter
+	 * @param {string} string
+	 * @returns {string}
+	 */
+	ucFirst: function(string) {
+
+		return string[0].toUpperCase() + string.substr(1);
+
+	}
+
+	// End: filters
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 };
