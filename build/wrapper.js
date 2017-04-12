@@ -6,7 +6,7 @@
  *
  * Version: <%=version%>
  */
-(function (_global) {
+(function(_global) {
 
 /*=FIRESTORM_CONTENT*/
 
