@@ -73,12 +73,15 @@ Firestorm.String = {
 	/**
 	 * Characters, which are escaped by the browser, when getting innerHTML of elements
 	 */
-	UNESCAPE_REGEX: /(&amp;|&lt;|&gt;)/g,
+	INNER_HTML_UNESCAPE_REGEX: /(&amp;|&lt;|&gt;)/g,
 
 	/**
-	 * Escape HTML entities found by `regex` argument
+	 * Replace HTML entities found by `regex` argument with their escaped equivalent.
+	 * Can escape only chars in {@link Firestorm.String#escape_chars}
+	 *
 	 * @param {string} string
-	 * @param {RegExp} regex A regular expression object, such as {@link Firestorm.String#HTML_ESCAPE_REGEX}
+	 * @param {RegExp} regex A regular expression object, such as {@link Firestorm.String#HTML_ESCAPE_REGEX}.
+	 * 	 Must match a subset of characters from `escape_chars`
 	 * @returns {string}
 	 */
 	escape: function(string, regex) {
@@ -90,14 +93,14 @@ Firestorm.String = {
 	},
 
 	/**
-	 * Unescape html entities which are escaped by browser (see {@link Firestorm.String#UNESCAPE_REGEX})
+	 * Unescape html entities which are escaped by browser (see {@link Firestorm.String#INNER_HTML_UNESCAPE_REGEX})
 	 * @param {string} string
 	 * @returns {string}
 	 */
 	unescape: function(string) {
 		var unescape_chars = this.unescape_chars;
 		return string.replace(
-			this.UNESCAPE_REGEX,
+			this.INNER_HTML_UNESCAPE_REGEX,
 			function(chr) { return unescape_chars[chr] }
 		);
 	},
