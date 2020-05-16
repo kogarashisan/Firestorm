@@ -1,3 +1,4 @@
 node\_modules
 \.idea
 \.ssh
+lib/firestorm.raw.js

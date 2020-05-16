@@ -105,10 +105,11 @@ Firestorm.String = {
 		);
 	},
 
+	// @todo вместо этого лучше JSON.stringify
 	/**
 	 * Serialize a string into it's JavaScript representation. If you eval() the result - you will get the original value
-	 * @param string
-	 * @returns {*}
+	 * @param {string} string
+	 * @returns {string}
 	 */
 	quote: function(string) {
 

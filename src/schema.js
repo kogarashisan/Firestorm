@@ -1,3 +1,5 @@
+// @todo вынести в глобальные константы как в КМ, особенно DEBUG
+
 /**
  * Settings for the Firestorm library
  */
@@ -16,7 +18,7 @@ Firestorm.schema = {
 	 */
 	DEFAULT_STABLE_SORT_ALGORITHM: 'mergeSort',
 	/**
-	 * Unstable algorithms are faster, but subsequent sorts mess the previous results
+	 * Unstable algorithms are faster, but subsequent sorts mess the previous sort results
 	 * @const
 	 */
 	DEFAULT_UNSTABLE_SORT_ALGORITHM: 'mergeSort',

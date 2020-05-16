@@ -8,7 +8,7 @@
  */
 (function(_global) {
 
-/*=FIRESTORM_CONTENT*/
+/*<%content%>*/
 
 if (typeof module != 'undefined' && module.exports) {
 
